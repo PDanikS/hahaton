@@ -1,0 +1,168 @@
+import os#когда черепашка закончит рисунок, нужно нажать на рисунок, чтобы программа закрылась
+import turtle
+from turtle import Turtle, Screen
+from PyQt5.QtWidgets import (
+   QApplication, QWidget,
+   QLabel, QPushButton, QListWidget,
+   QHBoxLayout, QVBoxLayout
+)
+
+app = QApplication([])
+win = QWidget()
+win.resize(700, 500)
+win.setWindowTitle('Geometric shapes')
+lb_image = QLabel("")
+lw_files = QListWidget()
+
+btn_left = QPushButton("Квадрат")
+btn_right = QPushButton("Треугольник")
+btn_flip = QPushButton("Круг")
+btn_sharp = QPushButton("Прямоугольник")
+btn_bw = QPushButton("Ромб")
+ 
+row = QHBoxLayout()    
+col1 = QVBoxLayout()      
+col2 = QVBoxLayout()
+col1.addWidget(lw_files)   
+col2.addWidget(lb_image, 95)
+row_tools = QHBoxLayout()    
+row_tools.addWidget(btn_left)
+row_tools.addWidget(btn_right)
+row_tools.addWidget(btn_flip)
+row_tools.addWidget(btn_sharp)
+row_tools.addWidget(btn_bw)
+col2.addLayout(row_tools)
+
+row.addLayout(col2, 80)
+win.setLayout(row)
+ 
+win.show()
+
+workdir = ''
+
+
+def chooseWorkdir():
+    global workdir
+    workdir = QFileDialog.getExistingDirectory()
+
+ 
+class ImageProcessor():
+    def __init__(self):
+        self.image = None
+        self.dir = None
+        self.filename = None
+        self.save_dir = "Modified/"
+        
+ 
+
+    def do_bw(self):
+        self.image = self.image.convert("L")
+        self.saveImage()
+        global workdir
+        image_path = os.path.join(workdir, self.save_dir, self.filename)
+        self.showImage(image_path)
+ 
+
+
+def kr():
+    canvas = Screen()
+    turtle.TurtleScreen._RUNNING=True
+    t = Turtle()
+    t.pensize(10)
+    for ch_color in ['pink', 'orange','yellow', 'lime']:
+        t.color(ch_color)
+        t.circle(50)
+    canvas.exitonclick()
+
+
+def kf():
+    canvas = Screen()
+    turtle.TurtleScreen._RUNNING=True
+    t = Turtle()
+    t.pensize(10)
+    for ch_color in ['pink', 'orange','yellow', 'lime']:
+        for i in range(4):
+            t.color(ch_color)
+            t.forward(100)
+            t.right(90)
+    canvas.exitonclick()
+
+def rb():
+    canvas = Screen()
+    turtle.TurtleScreen._RUNNING=True
+    t = Turtle()
+    t.pensize(10)
+    t.color('pink')
+    t.forward(200)
+    t.right(45)
+    t.color('orange')
+    t.forward(200)
+    t.right(135)
+    t.color('yellow')
+    t.forward(200)
+    t.right(45)
+    t.color('lime')
+    t.forward(200)
+    t.right(135)
+    canvas.exitonclick()
+
+def pg():
+    canvas = Screen()
+    turtle.TurtleScreen._RUNNING=True
+    t = Turtle()
+    t.pensize(10)
+    t.color('pink')
+    t.forward(200)
+    t.right(90)
+    t.color('orange')
+    t.forward(100)
+    t.right(90)
+    t.color('yellow')
+    t.forward(200)
+    t.right(90)
+    t.color('lime')
+    t.forward(100)
+    t.right(90)
+    canvas.exitonclick()
+
+def tg():
+    canvas = Screen()
+    turtle.TurtleScreen._RUNNING=True
+    t = Turtle()
+    t.pensize(10)
+    for ch_color in ['pink', 'orange','yellow']:
+        for i in range(3):
+            t.color(ch_color)
+            t.forward(200)
+            t.right(120)
+    canvas.exitonclick()
+
+
+
+workimage = ImageProcessor()
+ 
+ 
+def showChosenImage():
+   if lw_files.currentRow() >= 0:
+       filename = lw_files.currentItem().text()
+       workimage.loadImage(workdir, filename)
+       image_path = os.path.join(workimage.dir, workimage.filename)
+       workimage.showImage(image_path)
+ 
+
+lw_files.currentRowChanged.connect(showChosenImage)
+btn_flip.clicked.connect(kr)
+btn_left.clicked.connect(kf)
+btn_bw.clicked.connect(rb)
+btn_sharp.clicked.connect(pg)
+btn_right.clicked.connect(tg)
+
+def main():
+    window = ImageProcessor()
+    app.exec()
+
+
+
+if __name__ == '__main__':
+    main()
+
