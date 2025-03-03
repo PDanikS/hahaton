@@ -1,11 +1,11 @@
 import os#когда черепашка закончит рисунок, нужно нажать на рисунок, чтобы программа закрылась
-import turtle#когда черепашка закончит рисунок, нужно нажать на рисунок, чтобы программа закрылась
-from turtle import Turtle, Screen#когда черепашка закончит рисунок, нужно нажать на рисунок, чтобы программа закрылась
-from PyQt5.QtWidgets import (#когда черепашка закончит рисунок, нужно нажать на рисунок, чтобы программа закрылась
-   QApplication, QWidget,#когда черепашка закончит рисунок, нужно нажать на рисунок, чтобы программа закрылась
-   QLabel, QPushButton, QListWidget,#когда черепашка закончит рисунок, нужно нажать на рисунок, чтобы программа закрылась
-   QHBoxLayout, QVBoxLayout#когда черепашка закончит рисунок, нужно нажать на рисунок, чтобы программа закрылась
-)#когда черепашка закончит рисунок, нужно нажать на рисунок, чтобы программа закрылась
+import turtle
+from turtle import Turtle, Screen
+from PyQt5.QtWidgets import (
+   QApplication, QWidget,
+   QLabel, QPushButton, QListWidget,
+   QHBoxLayout, QVBoxLayout
+)
 
 app = QApplication([])
 win = QWidget()
