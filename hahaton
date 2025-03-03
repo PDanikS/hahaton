@@ -1,11 +1,11 @@
 import os#когда черепашка закончит рисунок, нужно нажать на рисунок, чтобы программа закрылась
-import turtle
-from turtle import Turtle, Screen
-from PyQt5.QtWidgets import (
-   QApplication, QWidget,
-   QLabel, QPushButton, QListWidget,
-   QHBoxLayout, QVBoxLayout
-)
+import turtle#когда черепашка закончит рисунок, нужно нажать на рисунок, чтобы программа закрылась
+from turtle import Turtle, Screen#когда черепашка закончит рисунок, нужно нажать на рисунок, чтобы программа закрылась
+from PyQt5.QtWidgets import (#когда черепашка закончит рисунок, нужно нажать на рисунок, чтобы программа закрылась
+   QApplication, QWidget,#когда черепашка закончит рисунок, нужно нажать на рисунок, чтобы программа закрылась
+   QLabel, QPushButton, QListWidget,#когда черепашка закончит рисунок, нужно нажать на рисунок, чтобы программа закрылась
+   QHBoxLayout, QVBoxLayout#когда черепашка закончит рисунок, нужно нажать на рисунок, чтобы программа закрылась
+)#когда черепашка закончит рисунок, нужно нажать на рисунок, чтобы программа закрылась
 
 app = QApplication([])
 win = QWidget()
@@ -69,9 +69,10 @@ def kr():
     turtle.TurtleScreen._RUNNING=True
     t = Turtle()
     t.pensize(10)
+    t.speed(10)
     for ch_color in ['pink', 'orange','yellow', 'lime']:
         t.color(ch_color)
-        t.circle(50)
+        t.circle(80)
     canvas.exitonclick()
 
 
@@ -80,10 +81,11 @@ def kf():
     turtle.TurtleScreen._RUNNING=True
     t = Turtle()
     t.pensize(10)
+    t.speed(8)
     for ch_color in ['pink', 'orange','yellow', 'lime']:
         for i in range(4):
             t.color(ch_color)
-            t.forward(100)
+            t.forward(200)
             t.right(90)
     canvas.exitonclick()
 
@@ -92,18 +94,31 @@ def rb():
     turtle.TurtleScreen._RUNNING=True
     t = Turtle()
     t.pensize(10)
-    t.color('pink')
-    t.forward(200)
-    t.right(45)
-    t.color('orange')
-    t.forward(200)
-    t.right(135)
-    t.color('yellow')
-    t.forward(200)
-    t.right(45)
-    t.color('lime')
-    t.forward(200)
-    t.right(135)
+    t.speed(8)
+    for i in range(2):
+        t.color('pink')
+        t.forward(200)
+        t.right(45)
+        t.forward(200)
+        t.right(135)
+    for i in range(2):
+        t.color('orange')
+        t.forward(200)
+        t.right(45)
+        t.forward(200)
+        t.right(135)
+    for i in range(2):
+        t.color('yellow')
+        t.forward(200)
+        t.right(45)
+        t.forward(200)
+        t.right(135)
+    for i in range(2):
+        t.color('lime')
+        t.forward(200)
+        t.right(45)
+        t.forward(200)
+        t.right(135)
     canvas.exitonclick()
 
 def pg():
@@ -111,18 +126,31 @@ def pg():
     turtle.TurtleScreen._RUNNING=True
     t = Turtle()
     t.pensize(10)
-    t.color('pink')
-    t.forward(200)
-    t.right(90)
-    t.color('orange')
-    t.forward(100)
-    t.right(90)
-    t.color('yellow')
-    t.forward(200)
-    t.right(90)
-    t.color('lime')
-    t.forward(100)
-    t.right(90)
+    t.speed(8)
+    for i in range(2):
+        t.color('pink')
+        t.forward(300)
+        t.right(90)
+        t.forward(200)
+        t.right(90)
+    for i in range(2):
+        t.color('orange')
+        t.forward(300)
+        t.right(90)
+        t.forward(200)
+        t.right(90)
+    for i in range(2):
+        t.color('yellow')
+        t.forward(300)
+        t.right(90)
+        t.forward(200)
+        t.right(90)
+    for i in range(2):
+        t.color('lime')
+        t.forward(300)
+        t.right(90)
+        t.forward(200)
+        t.right(90)
     canvas.exitonclick()
 
 def tg():
@@ -130,10 +158,11 @@ def tg():
     turtle.TurtleScreen._RUNNING=True
     t = Turtle()
     t.pensize(10)
+    t.speed(8)
     for ch_color in ['pink', 'orange','yellow']:
         for i in range(3):
             t.color(ch_color)
-            t.forward(200)
+            t.forward(300)
             t.right(120)
     canvas.exitonclick()
 
@@ -165,4 +194,6 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
 
